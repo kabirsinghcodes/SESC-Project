@@ -4,13 +4,8 @@ import { Link as LinkWithPage } from "react-router-dom";
 
 export default function Home() {
   return (
-    <Theme
-      accentColor="plum"
-      radius="full"
-      panelBackground="translucent"
-      appearance="dark"
-    >
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-emerald-800 to-neutral-900 text-white">
+    <Theme>
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white">
         <Flex direction={"column"} gap={"5"}>
           <Flex direction={"column"}>
             <h1 className="text-2xl lg:text-7xl font-semibold">

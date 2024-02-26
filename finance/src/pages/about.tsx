@@ -18,7 +18,7 @@ export default function About() {
       panelBackground="translucent"
       appearance="dark"
     >
-      <div className="flex min-h-screen flex-col bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white">
+      <div className="flex min-h-screen flex-col bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white">
         <Head />
         <div className="flex flex-col items-center justify-center flex-1">
           <Card className="mt-8 p-4" style={{ width: 370 }}>
@@ -44,13 +44,11 @@ export default function About() {
                     Forgot password?
                   </Link>
                 </Flex>
-                <TextField.Input placeholder="Enter your password" />
+                <TextField.Input size="3" placeholder="Enter your password" />
               </Flex>
               <Flex gap={"2"} className="place-content-end gap-2">
                 <Button variant="soft">
-                  <Text size={"2"} color="mint">
-                    Create an account
-                  </Text>
+                  <Text size={"2"}>Create an account</Text>
                 </Button>
                 <Button variant="solid">Sign in</Button>
               </Flex>
