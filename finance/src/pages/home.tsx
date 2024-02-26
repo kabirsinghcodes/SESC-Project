@@ -1,18 +1,31 @@
-import { Link } from "react-router-dom";
 import "@radix-ui/themes/styles.css";
-import "./home.css";
+import { Flex, Button, Theme } from "@radix-ui/themes";
+import { Link as LinkWithPage } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="bg-neutral-100 min-h-screen flex flex-col">
-      <p>FINANCE</p>
-      <div className="container">
-        <div className="translucent-rectangle flex justify-center items-center">
-          <Link className="bg-emerald-300 p-2 rounded-md " to="/about">
-            GET STARTED
-          </Link>
-        </div>
+    <Theme
+      accentColor="plum"
+      radius="full"
+      panelBackground="translucent"
+      appearance="dark"
+    >
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-emerald-800 to-neutral-900 text-white">
+        <Flex direction={"column"} gap={"5"}>
+          <Flex direction={"column"}>
+            <h1 className="text-2xl lg:text-7xl font-semibold">
+              Welcome To Finance App!
+            </h1>
+          </Flex>
+          <div className="flex justify-center">
+            <Button variant="solid" size={"4"}>
+              <LinkWithPage to="/about">
+                <p className="text-lg p-4">Get Started!</p>
+              </LinkWithPage>
+            </Button>
+          </div>
+        </Flex>
       </div>
-    </div>
+    </Theme>
   );
 }
