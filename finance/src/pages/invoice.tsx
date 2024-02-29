@@ -1,9 +1,10 @@
 import "@radix-ui/themes/styles.css";
 import { Card, Flex, Text, TextField, Button, Theme } from "@radix-ui/themes";
+import { Link as LinkWithPage } from "react-router-dom";
+import { useState } from "react";
 
-export default function Invoices() {
-
-  
+export default function Invoice() {
+  const [input, setInput] = useState("");
 
   return (
     <Theme
@@ -17,59 +18,29 @@ export default function Invoices() {
           <Card className="mt-8 p-4" style={{ width: 370 }}>
             <Flex direction={"column"} gap={"5"}>
               <Flex direction={"column"}>
-                <h1 className="text-2xl font-semibold">Invoice</h1>
+                <h1 className="text-2xl font-semibold">
+                  Fetch your Invoice here :)
+                </h1>
               </Flex>
-              <Flex direction={"row"} gap={"9"}>
+              <Flex direction={"column"} gap={"1"}>
                 <Flex justify={"between"}>
-                  <h2>Reference : </h2>
+                  <Text size={"2"} className="font-semibold">
+                    Enter Invoice Code
+                  </Text>
                 </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
-              </Flex>
-              <Flex direction={"row"} gap={"9"}>
-                <Flex justify={"between"}>
-                  <h2>Student ID : </h2>
-                </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
-              </Flex>
-              <Flex direction={"row"} gap={"9"}>
-                <Flex justify={"between"}>
-                  <h2>Amount : </h2>
-                </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
-              </Flex>
-              <Flex direction={"row"} gap={"9"}>
-                <Flex justify={"between"}>
-                  <h2>Due Date : </h2>
-                </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
-              </Flex>
-              <Flex direction={"row"} gap={"9"}>
-                <Flex justify={"between"}>
-                  <h2>Type : </h2>
-                </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
-              </Flex>
-              <Flex direction={"row"} gap={"9"}>
-                <Flex justify={"between"}>
-                  <h2>Status : </h2>
-                </Flex>
-                <Flex justify={"between"}>
-                  <h2>ABC</h2>
-                </Flex>
+                <TextField.Input
+                  size="3"
+                  placeholder="Enter your invoice code"
+                  onChange={(event) => {
+                    setInput(event.target.value);
+                  }}
+                />
               </Flex>
               <Flex gap={"2"} className="place-content-end gap-2">
                 <Button variant="solid" size={"2"} color="plum">
-                  <span className="text-lg p-4">Pay</span>
+                  <LinkWithPage to={`/invoice/${input}`}>
+                    <p className="text-lg p-4">Get Invoice!</p>
+                  </LinkWithPage>
                 </Button>
               </Flex>
             </Flex>

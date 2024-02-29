@@ -14,7 +14,7 @@ export default function Home() {
           </Flex>
           <div className="flex justify-center">
             <Button variant="solid" size={"4"} color="plum">
-              <LinkWithPage to="/About">
+              <LinkWithPage to="/invoice">
                 <p className="text-lg p-4">Get Started!</p>
               </LinkWithPage>
             </Button>

@@ -3,10 +3,10 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/home";
-import About from "./pages/about";
-import Invoices from "./pages/invoice";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import InvoiceDetail from "./pages/invoice-detail";
+import Invoice from "./pages/invoice";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +14,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/about",
-    element: <About />,
+    path: "/invoice",
+    element: <Invoice />,
   },
   {
-    path: "/Invoices",
-    element: <Invoices />,
+    path: "/invoice/:invoiceid",
+    element: <InvoiceDetail />,
   },
 ]);
 
