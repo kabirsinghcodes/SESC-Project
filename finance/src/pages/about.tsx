@@ -1,14 +1,6 @@
 import "@radix-ui/themes/styles.css";
-import {
-  Card,
-  Flex,
-  Text,
-  TextField,
-  Button,
-  Link,
-  Theme,
-} from "@radix-ui/themes";
-import Head from "../components/head";
+import { Card, Flex, Text, TextField, Button, Theme } from "@radix-ui/themes";
+import { Link as LinkWithPage } from "react-router-dom";
 
 export default function About() {
   return (
@@ -26,9 +18,6 @@ export default function About() {
                 <h1 className="text-2xl font-semibold">
                   Fetch your Invoice here :)
                 </h1>
-                {/* <p className="text-sm font-medium text-neutral-300">
-                  Create a new account
-                </p> */}
               </Flex>
               <Flex direction={"column"} gap={"1"}>
                 <Flex justify={"between"}>
@@ -42,10 +31,11 @@ export default function About() {
                 />
               </Flex>
               <Flex gap={"2"} className="place-content-end gap-2">
-                <Button variant="soft">
-                  <Text size={"2"}>Get Invoice</Text>
+                <Button variant="solid" size={"2"} color="plum">
+                  <LinkWithPage to="/Invoices">
+                    <p className="text-lg p-4">Get Invoice!</p>
+                  </LinkWithPage>
                 </Button>
-                {/* <Button variant="solid">Sign in</Button> */}
               </Flex>
             </Flex>
           </Card>

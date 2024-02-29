@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/home";
 import About from "./pages/about";
+import Invoices from "./pages/invoice";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/Invoices",
+    element: <Invoices />,
   },
 ]);
 
