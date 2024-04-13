@@ -6,6 +6,9 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import Signup from "./pages/signup";
+import ProfilePage from "./pages/profile";
+import CoursesPage from "./pages/courses";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +18,18 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/courses",
+    element: <CoursesPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
   },
 ]);
 

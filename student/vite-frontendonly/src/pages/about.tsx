@@ -8,32 +8,30 @@ import {
   Link,
   Theme,
 } from "@radix-ui/themes";
-import Head from "../components/head";
-
+import { Link as LinkWithPage } from "react-router-dom";
 export default function About() {
   return (
     <Theme
-      accentColor="plum"
+      accentColor="jade"
       radius="full"
       panelBackground="translucent"
       appearance="dark"
     >
       <div className="flex min-h-screen flex-col bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white">
-        <Head />
         <div className="flex flex-col items-center justify-center flex-1">
           <Card className="mt-8 p-4" style={{ width: 370 }}>
             <Flex direction={"column"} gap={"5"}>
               <Flex direction={"column"}>
-                <h1 className="text-2xl font-semibold">Sign up</h1>
+                <h1 className="text-2xl font-semibold">Sign In</h1>
                 <p className="text-sm font-medium text-neutral-300">
                   Create a new account
                 </p>
               </Flex>
               <Flex direction={"column"} gap={"1"}>
                 <Text size={"2"} className="font-semibold">
-                  Email address
+                  Username
                 </Text>
-                <TextField.Input placeholder="Enter your email" />
+                <TextField.Input placeholder="Enter your Username" />
               </Flex>
               <Flex direction={"column"} gap={"1"}>
                 <Flex justify={"between"}>
@@ -48,9 +46,15 @@ export default function About() {
               </Flex>
               <Flex gap={"2"} className="place-content-end gap-2">
                 <Button variant="soft">
-                  <Text size={"2"}>Create an account</Text>
+                  <LinkWithPage to="/signup">
+                    <p className="text-lg p-4">Create an account</p>
+                  </LinkWithPage>
                 </Button>
-                <Button variant="solid">Sign in</Button>
+                <Button variant="solid">
+                  <LinkWithPage to="/courses">
+                    <p className="text-lg p-4">Sign in</p>
+                  </LinkWithPage>
+                </Button>
               </Flex>
             </Flex>
           </Card>
