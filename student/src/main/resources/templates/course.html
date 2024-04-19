@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+<head>
+    <title>Student Portal View Course</title>
+    <meta th:replace="fragments/header"/>
+    <style>
+        .custom-padding {
+            padding-left: 100px; /* Adjust as needed */
+            padding-top: 100px;
+        }
+        .bg-dark.bg-gradient {
+            /* Add your gradient background styles here */
+            /* For example */
+            background-image: linear-gradient(to right, #000000, #333333);
+            /* Ensure the gradient covers the entire background */
+            background-size: cover;
+            /* Add any additional styles as needed */
+            color: white; /* Example text color */
+            padding: 20px; /* Example padding */
+        }
+        #container {
+            border-radius: 20px; /* Adjust the value as needed */
+            /* Add other styles as needed */
+            width: 80%;
+            padding: 20px;
+
+        }
+    </style>
+</head>
+<body class="bg-dark bg-gradient">
+<div th:replace="fragments/nav"></div>
+<div id="alert" th:if="${isEnrolled}" th:text="${message}" th:class="${'alert alert-success'}" class="bg-dark bg-gradient"></div>
+<div id="container" class="container mb-2 custom-padding">
+    <h1 th:inline="text">[[${course.title}]]</h1>
+    <p th:inline="text">[[${course.description}]]</p>
+    <p th:inline="text">Fee: [[${#numbers.formatCurrency(course.fee)}]]</p>
+    <div th:unless="${isEnrolled}">
+        <form action="#" th:action="@{'/courses/' + ${course.id} + '/enrol'}" method="post">
+            <button class="btn btn-outline-info " type="submit" name="course" value="submit">Enrol
+            </button>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

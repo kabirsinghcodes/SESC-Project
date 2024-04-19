@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+<head>
+    <title>Graduation</title>
+    <meta th:replace="fragments/header"/>
+    <style>
+        .bg-dark.bg-gradient {
+            /* Add your gradient background styles here */
+            /* For example */
+            background-image: linear-gradient(to right, #000000, #333333);
+            /* Ensure the gradient covers the entire background */
+            background-size: cover;
+            /* Add any additional styles as needed */
+            color: white; /* Example text color */
+            padding: 20px; /* Example padding */
+        }
+        #container {
+            border-radius: 20px; /* Adjust the value as needed */
+            /* Add other styles as needed */
+            width: 60%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="bg-dark bg-gradient">
+<div th:replace="fragments/nav"></div>
+<div id="container" class="container mx-auto my-50 border border-start-5 border-info align-content-center">
+    <h2 class="text-center">Graduation</h2>
+    <p class="text-center">You need to pay any outstanding course and library fees before you are eligible to graduate.</p>
+    <p class="text-center">Your current status is: <span th:text="${message}"></span>.</p>
+    <p th:if="${balanceOutstanding}" class="text-center">Please log into the Payment Portal to pay your outstanding balance.</p>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

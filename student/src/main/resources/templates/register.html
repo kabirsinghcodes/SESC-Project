@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Sign Up to Student Portal</title>
+    <meta th:replace="fragments/header"/>
+    <style>
+        .bg-dark.bg-gradient {
+            /* Add your gradient background styles here */
+            /* For example */
+            background-image: linear-gradient(to right, #000000, #333333);
+            /* Ensure the gradient covers the entire background */
+            background-size: cover;
+            /* Add any additional styles as needed */
+            color: white; /* Example text color */
+            padding: 20px; /* Example padding */
+        }
+        .container{
+            padding-left: 500px;
+            padding-top: 100px;
+        }
+        .small-gap{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-dark bg-gradient">
+<div id="alert" th:if="${message}" th:text="${message}" th:class="${'alert alert-danger text-center'}"></div>
+<div id="container">
+    <form class="form-signin small-gap" th:action="@{/register}" th:object="${user}"
+          method="post">
+        <h2 class="form-signin-heading small-gap text-center text-info ">User Registration</h2>
+        <p class="small-gap text-center text-info font-weight-bold">
+            <label for="username">Username: </label>
+            <input id="username" type="text" th:field="*{userName}" class="form-control" required/>
+        </p>
+        <p class="small-gap text-center text-info font-weight-bold">
+            <label for="email">E-mail: </label>
+            <input id="email" type="email" th:field="*{email}" class="form-control" required/>
+        </p>
+        <p class="small-gap text-center text-info font-weight-bold">
+            <label for="password">Password: </label>
+            <input id="password" type="password" th:field="*{password}" class="form-control"
+                   required minlength="6" maxlength="10"/>
+        </p>
+        <button type="submit" class="btn btn-lg btn-outline-info btn-block small-gap">Sign Up</button>
+    </form>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

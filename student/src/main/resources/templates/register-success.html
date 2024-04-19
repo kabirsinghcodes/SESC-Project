@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Registration Success</title>
+    <meta th:replace="fragments/header"/>
+    <style>
+        .bg-dark.bg-gradient {
+            /* Add your gradient background styles here */
+            /* For example */
+            background-image: linear-gradient(to right, #000000, #333333);
+            /* Ensure the gradient covers the entire background */
+            background-size: cover;
+            /* Add any additional styles as needed */
+            color: white; /* Example text color */
+            padding: 20px; /* Example padding */
+        }
+        .container{
+            padding-left: 500px;
+            padding-top: 100px;
+        }
+        .small-gap{
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body class="bg-gradient bg-dark small-gap">
+<div class="container-fluid text-center" id="container">
+    <h3>You're New Account is Set Up!</h3>
+    <h4><a href="/login">Click here to access student portal</a></h4>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

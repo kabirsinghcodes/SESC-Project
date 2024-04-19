@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+<head>
+    <title>Student Portal Home Page</title>
+    <meta th:replace="fragments/header"/>
+    <style>
+        .bg-dark.bg-gradient {
+            /* Add your gradient background styles here */
+            /* For example */
+            background-image: linear-gradient(to right, #000000, #333333);
+            /* Ensure the gradient covers the entire background */
+            background-size: cover;
+            /* Add any additional styles as needed */
+            color: white; /* Example text color */
+            padding: 20px; /* Example padding */
+        }
+        #container {
+            border-radius: 20px; /* Adjust the value as needed */
+            /* Add other styles as needed */
+            width: 60%;
+            padding: 20px;
+        }
+        .padding1{
+            padding-top: 20px;
+        }
+        .paddingontop{
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body class="bg-dark bg-gradient">
+<div th:replace="fragments/nav"></div>
+<div class="paddingontop">
+    <div id="container" class="container bg-info-subtle border border-start-5 border-info mx-auto padding1">
+        <h2 class="text-center padding1" th:inline="text">Hola, [[${showFirstName ? student.forename : user.userName}]]!</h2>
+        <p class="text-center padding1">Welcome to the student portal.</p>
+        <p class="text-center padding1">This portal gives you access to the courses that we offer and other details about your profile and graduaction.</p>
+        <p class="text-center padding1">You can access and edit your profile once you have registered yourself as a student.</p>
+        <p class="text-center padding1">It happens automatically when you enrol in a course.</p>
+    </div>
+</div>
+
+</body>
+</html>
