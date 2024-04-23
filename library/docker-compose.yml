@@ -19,31 +19,32 @@ services:
     networks:
       - default
     command: --innodb-flush-method=fsync --innodb-use-native-aio=0
-    healthcheck:
-      test: '/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute "SHOW DATABASES;"'
-      timeout: 2s
-      retries: 10
+#    healthcheck:
+#      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+#      interval: 5s
+#      timeout: 2s
+#      retries: 10
     ports:
       - "3309:3306"
     expose:
       - "3309"
+#
+#  libraryapp:
+#    image: kabir-library
+#    environment:
+#      DATABASE: mysql://${DB_APPLICATION_USER}:${DB_APPLICATION_PASSWORD}@librarydb:3306/${DB_NAME}
+#    networks:
+#      - default
+#    ports:
+#      - "80:80"
+#    expose:
+#      - "80"
+#    depends_on:
+#      librarydb:
+#        condition: service_healthy
 
-  libraryapp:
-    image: ces-books:4.0
-    environment:
-      DATABASE: mysql://${DB_APPLICATION_USER}:${DB_APPLICATION_PASSWORD}@librarydb:3306/${DB_NAME}
-    networks:
-      - default
-    ports:
-      - "80:80"
-    expose:
-      - "80"
-    depends_on:
-      librarydb:
-        condition: service_healthy
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - "8089:8080"
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - "8089:8080"
